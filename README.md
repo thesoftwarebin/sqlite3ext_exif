@@ -28,6 +28,8 @@ See [test/test001-basic.sql](test/test001-basic.sql) for a few more usage exampl
 ### How to compile
 
 `libexif` is a mandatory dependency and must be already be installed on the system; and command `gcc ... -lexif` must not fail.
+`libexif` is LGPL and can be built from source code, which is available [here](https://github.com/libexif/libexif/).
+
 Once this preliminary is satisfied, proceed with the usual configure/make sequence:
 
 
@@ -61,7 +63,6 @@ gcc -shared -nodefaultlibs \
   -Wl,-Bstatic,-lsqlite3,-lexif,-Bdynamic
 
 ldd src/.libs/sqlite3ext_exif.so
-
 ```
 
 It's been tested on this Linux setup:
@@ -77,7 +78,6 @@ gcc (Debian 14.2.0-19) 14.2.0
 Copyright (C) 2024 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
 ```
 
 ### How to run the test suite
@@ -110,6 +110,18 @@ The tests have been confirmed to pass on this MinGW64 environment in Windows:
 	Built for x86_64-pc-msys
 ```
 
-At the time of writing (Dec'2025) no tests have been conducted on
-Linux or other Unix-like OSes, but the source code is supposed to
-compile and run there with no or minimal adjustments.
+and on this Linux VM:
+
+```
+$ uname -a
+
+Linux mytestmachine 6.12.63+deb13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.12.63-1 (2025-12-30) x86_64 GNU/Linux
+
+$ gcc --version
+
+gcc (Debian 14.2.0-19) 14.2.0
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
